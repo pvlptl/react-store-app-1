@@ -1,0 +1,17 @@
+{
+  "name": "react-store",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "client-install": "npm install --prefix client",
+    "start": "node ./bin/www.js",
+    "client": "npm start --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "morgan": "~1.9.0"
+  }
+}
