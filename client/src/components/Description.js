@@ -2,10 +2,10 @@ import React from 'react';
 import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
 import styled from 'styled-components';
 
-const Description = props => {
+const Description = ({price}) => {
     return (
         <Container>
-            <Price>$2500</Price>
+            <Price>${price}</Price>
             <Button>
                 <i className="fas fa-shopping-cart"/>
                 <span>Buy Now!</span>

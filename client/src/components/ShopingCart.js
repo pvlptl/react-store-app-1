@@ -8,7 +8,7 @@ class ShopingCart extends Component {
     render() {
         return (
             <Container>
-                <p>Shoping Cart goes here</p>
+                <p>Shopping cart is empty :(</p>
             </Container>
         );
     }

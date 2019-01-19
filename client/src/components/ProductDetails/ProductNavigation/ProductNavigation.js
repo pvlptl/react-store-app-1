@@ -1,7 +1,7 @@
 import React from 'react';
 import {Tabs, Tab} from 'react-materialize'
 import './ProductNavigation.scss';
-import Nav_ProductDetails from "./nav_ProductDetails/Nav_ProductDetails";
+import Nav_ProductDetails from "./NavProductDetails/NavProductDetails";
 
 const ProductNavigation = props => {
     return (

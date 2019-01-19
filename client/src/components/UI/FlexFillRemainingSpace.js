@@ -1,11 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const FlexFillRemainingSpace = props => {
-    return (
-        <Container/>
-    );
-};
+const FlexFillRemainingSpace = () => <Container/>;
 
 const Container = styled.div`
     flex: 1 1 auto;

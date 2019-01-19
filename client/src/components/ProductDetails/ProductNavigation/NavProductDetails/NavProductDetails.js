@@ -3,7 +3,7 @@ import styled from "styled-components";
 import ProductImages from "./ProductImages";
 import ProductPrice from "./ProductPrice/ProductPrice";
 
-const Nav_ProductDetails = props => {
+const NavProductDetails = props => {
     return (
         <Container>
             <ProductImages/>
@@ -23,4 +23,4 @@ const Container = styled.div`
     
 `;
 
-export default Nav_ProductDetails;
+export default NavProductDetails;

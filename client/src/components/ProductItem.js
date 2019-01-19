@@ -1,19 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import productUrl from '../assets/images/products/product.png';
 import {Link} from "react-router-dom";
 import Description from "./Description";
 
-const ProductItem = props => {
+const ProductItem = ({product}) => {
+
+    const {title, price, image, uniqueName} = product;
+
     return (
         <Container>
-            <Link to="/product">
-                <img src={productUrl} alt="Product Name"/>
+            <Link to={`/product/${uniqueName}`}>
+                <img src={image} alt={title}/>
             </Link>
             <HR/>
-            <Name>Laptop ASUS X570UD-E4037 (90NB0HS1-M00460) Black</Name>
+            <Name>{title}</Name>
             <br/>
-            <Description/>
+            <Description price={price}/>
         </Container>
     );
 };
