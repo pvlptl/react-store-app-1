@@ -1,0 +1,15 @@
+.product-navigation-tabs {
+    background: none;
+    margin-bottom: 20px;
+    box-shadow: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    .indicator {
+        background: #3494E6;  /* fallback for old browsers */
+        background: -webkit-linear-gradient(to right, #EC6EAD, #3494E6);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to right, #EC6EAD, #3494E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    }
+
+}

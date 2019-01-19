@@ -2,17 +2,19 @@ import React from 'react';
 import styled from 'styled-components';
 import logoUrl from '../assets/images/logo.png';
 import Search from "./Search";
+import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
+import Link from "react-router-dom/es/Link";
 
 const Header = props => {
     return (
         <Container>
-            <a href="/">
+            <Link to="/">
                 <Logo>
                     <img src={logoUrl} alt="Logo"/>
                 </Logo>
-            </a>
+            </Link>
             <Search/>
-            <FillRemainigSpace/>
+            <FlexFillRemainingSpace/>
             <Buttons>
                 <ButtonItem>
                     <i className="fas fa-balance-scale"/>
@@ -33,13 +35,13 @@ const Header = props => {
 
 const Container = styled.div`
 
-    background: #FFEEEE;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #DDEFBB, #FFEEEE);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #DDEFBB, #FFEEEE); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #c21500;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ffc500, #c21500);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ffc500, #c21500); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
 
     padding: 20px;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     @media screen and (max-width: 700px) {
@@ -62,14 +64,11 @@ const Logo = styled.div`
     }
 `;
 
-const FillRemainigSpace = styled.div`
-    flex: 1 1 auto;
-`;
-
 const Buttons = styled.div`
    display: flex;
    flex-direction: row;
    align-items: center;
+   color: white;
 `;
 
 const ButtonItem = styled.div`
