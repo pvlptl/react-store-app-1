@@ -19,9 +19,14 @@ const ProductPrice = props => {
 
 const Container = styled.div`
     width: 50%;
-    //background: whitesmoke;
     border-radius: 5px;
     margin: 0 5px;
+    
+    @media screen and (max-width: 800px) {
+      width: 100%;
+      margin-top: 10px;
+    }
+    
 `;
 
 const UL = styled.div`

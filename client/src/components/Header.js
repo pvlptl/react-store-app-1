@@ -4,8 +4,15 @@ import logoUrl from '../assets/images/logo.png';
 import Search from "./Search";
 import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
 import Link from "react-router-dom/es/Link";
+import {Modal} from 'react-materialize'
+import ShopingCart from "./ShopingCart";
 
 const Header = props => {
+
+    const modalTrigger = (
+        <i className="fas fa-shopping-cart"/>
+    );
+
     return (
         <Container>
             <Link to="/">
@@ -24,10 +31,15 @@ const Header = props => {
                     <i className="fas fa-heart"/>
                     <span>Wish Lish</span>
                 </ButtonItem>
+
                 <ButtonItem>
-                    <i className="fas fa-shopping-cart"/>
+                    <Modal
+                        trigger={modalTrigger}>
+                        <ShopingCart/>
+                    </Modal>
                     <span>Shopping Cart</span>
                 </ButtonItem>
+
             </Buttons>
         </Container>
     );

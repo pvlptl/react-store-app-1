@@ -16,6 +16,11 @@ const Container = styled.div`
     display: flex;
     flex-direction: row;
     margin: 0 -10px;
+    
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+    }
+    
 `;
 
 export default Nav_ProductDetails;

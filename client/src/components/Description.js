@@ -8,7 +8,7 @@ const Description = props => {
             <Price>$2500</Price>
             <Button>
                 <i className="fas fa-shopping-cart"/>
-                Buy Now!
+                <span>Buy Now!</span>
             </Button>
             <Button>
                 <i className="fas fa-balance-scale"/>
@@ -54,9 +54,10 @@ const Button = styled.span`
       transform: scale(1.1);
     }
     
-    i {
-      margin-right: 5px;
+    span {
+      padding-left: 5px;
     }
+    
 `;
 
 const Reviews = styled.span`
