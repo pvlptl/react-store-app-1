@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import rootReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import {watchProducts} from "./sagas";
+import {watchProducts, watchShopingCart} from "./sagas";
 
 const initialState = {
 
@@ -21,5 +21,6 @@ const store = createStore(
 
 // sagas handlers
 sagaMiddleware.run(watchProducts);
+sagaMiddleware.run(watchShopingCart);
 
 export default store;

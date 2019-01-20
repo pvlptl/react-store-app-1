@@ -34,3 +34,10 @@ export const getProductDetailsLoading = data => {
     }
 };
 
+export const markProductAsInShopingCart = data => {
+    return {
+        type: types.MARK_PRODUCT_AS_IN_SHOPING_CART,
+        data
+    }
+};
+

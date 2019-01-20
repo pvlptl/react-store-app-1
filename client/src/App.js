@@ -12,23 +12,24 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import NotFound from "./components/NotFound";
 
 class App extends Component {
-  render() {
-    return (
-        <Provider store={ store }>
-            <Router>
-                <Container>
-                    <Header/>
-                    <Switch>
-                        <Route exact path='/' component={ProductsList}/>
-                        <Route exact path='/not-found' component={NotFound}/>
-                        <Route exact path='/:titleForUrl/:id' component={ProductDetails}/>
-                        <Route component={NotFound}/>
-                    </Switch>
-                </Container>
-            </Router>
-        </Provider>
-    );
-  }
+
+    render() {
+        return (
+            <Provider store={ store }>
+                <Router>
+                    <Container>
+                        <Header/>
+                        <Switch>
+                            <Route exact path='/' component={ProductsList}/>
+                            <Route exact path='/not-found' component={NotFound}/>
+                            <Route exact path='/:titleForUrl/:id' component={ProductDetails}/>
+                            <Route component={NotFound}/>
+                        </Switch>
+                    </Container>
+                </Router>
+            </Provider>
+        );
+    }
 }
 
 const Container = styled.div`

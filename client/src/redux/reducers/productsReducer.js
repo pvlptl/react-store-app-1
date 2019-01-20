@@ -34,6 +34,18 @@ export default function (state = initialState, action) {
                 }
             };
 
+        case types.MARK_PRODUCT_AS_IN_SHOPING_CART:
+
+            const products = [...state.data];
+            for (let i = 0; i < products.length; i++) {
+                if (products[i].id === action.data.id) products[i].inShopingCart = true;
+            }
+
+            return {
+                ...state,
+                data: [...products]
+            };
+
         default:
             return state;
     }

@@ -5,7 +5,7 @@ import Description from "../../../../Description";
 const BuyDetails = ({productDetails}) => {
     return (
         <Container>
-            <Description price={productDetails.price}/>
+            <Description product={productDetails}/>
         </Container>
     );
 };

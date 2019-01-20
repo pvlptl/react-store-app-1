@@ -8,12 +8,15 @@ import {getProductDetails} from "../../redux/actions/productsActions";
 import isEmpty from "../../validation/isEmpty";
 import Spinner from "../UI/Spinner/Spinner";
 import NotFound from "../NotFound";
+import {loadShopingCartFromLocalStorageInit} from "../../redux/actions/shopingCartActions";
 
 class ProductDetails extends Component{
 
     componentDidMount() {
         const {id} = this.props.match.params;
-        this.props.getProductDetails(id);
+        const {getProductDetails, loadShopingCartFromLocalStorageInit} = this.props;
+        getProductDetails(id);
+        loadShopingCartFromLocalStorageInit();
     }
 
 
@@ -49,6 +52,7 @@ const Container = styled.div`
 
 ProductDetails.propTypes = {
     getProductDetails: PropTypes.func.isRequired,
+    loadShopingCartFromLocalStorageInit: PropTypes.func.isRequired,
     productDetails: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired
 };
@@ -58,4 +62,4 @@ const mapStateToProps = state => ({
     errors: state.errors,
 });
 
-export default connect(mapStateToProps, {getProductDetails})(withRouter(ProductDetails));
+export default connect(mapStateToProps, {getProductDetails, loadShopingCartFromLocalStorageInit})(withRouter(ProductDetails));

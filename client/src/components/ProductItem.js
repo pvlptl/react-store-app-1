@@ -2,10 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
 import Description from "./Description";
+import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
 
 const ProductItem = ({product}) => {
 
-    const {id, title, titleForUrl, price, image} = product;
+    const {id, title, titleForUrl, image} = product;
     const productUrl = `${titleForUrl}/${id}`;
 
     return (
@@ -15,15 +16,21 @@ const ProductItem = ({product}) => {
                     <img src={image} alt={title}/>
                 </Image>
             </Link>
-            <HR/>
-            <Name>{title}</Name>
-            <br/>
-            <Description price={price}/>
+            <FlexFillRemainingSpace/>
+            <Footer>
+                <HR/>
+                <Name>{title}</Name>
+                <br/>
+                <Description product={product}/>
+            </Footer>
         </Container>
     );
 };
 
 const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    
     padding: 20px;
     background: white;
     margin: 5px;
@@ -34,11 +41,11 @@ const Container = styled.div`
       width: calc(33.3333333% - 10px);
     }
     
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1070px) {
       width: calc(50% - 10px);
     }
     
-    @media screen and (max-width: 700px) {
+    @media screen and (max-width: 740px) {
       width: calc(100% - 10px);
     }
     
@@ -55,6 +62,10 @@ const Image = styled.div`
         transform: scale(1.1);
       }
     }
+`;
+
+const Footer = styled.div`
+    
 `;
 
 const Name = styled.div`

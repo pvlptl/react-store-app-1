@@ -32,6 +32,7 @@ export function* getProductDetailsSaga(action) {
     }
     catch (err) {
 
+        yield put(getProductDetailsLoading(false));
         yield put(getErrors(err));
 
     }

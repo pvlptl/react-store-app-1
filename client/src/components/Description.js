@@ -1,14 +1,40 @@
 import React from 'react';
-import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
 import styled from 'styled-components';
+import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import {addProductToShopingCartInit} from "../redux/actions/shopingCartActions";
+import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
+import {markProductAsInShopingCart} from "../redux/actions/productsActions";
 
-const Description = ({price}) => {
+const Description = ({product, addProductToShopingCartInit, shopingCart, markProductAsInShopingCart}) => {
+
+    const {inShopingCart} = product;
+
+    let productFoundInShopingCart = false;
+    if (!inShopingCart) {
+        for (let i = 0; i < shopingCart.length; i++) {
+            if (shopingCart[i].id === product.id) {
+                productFoundInShopingCart = true;
+                break;
+            }
+        }
+    }
+
+    const disabled = inShopingCart || productFoundInShopingCart ;
+    const onClick = () => {
+        if (disabled) return;
+        addProductToShopingCartInit(shopingCart, product);
+        markProductAsInShopingCart(product);
+    };
+
+    const buyButtonText = disabled ? 'In Cart' : 'Buy Now!';
+
     return (
         <Container>
-            <Price>${price}</Price>
-            <Button>
+            <Price>${product.price}</Price>
+            <Button disabled={disabled} onClick={onClick}>
                 <i className="fas fa-shopping-cart"/>
-                <span>Buy Now!</span>
+                <span>{buyButtonText}</span>
             </Button>
             <Button>
                 <i className="fas fa-balance-scale"/>
@@ -42,16 +68,14 @@ const Price = styled.span`
 const Button = styled.span`
     margin-left: 5px;
     padding: 5px;
-    background: #FF4E50;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #F9D423, #FF4E50);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #F9D423, #FF4E50); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
     border-radius: 5px;
     color: white;
-    cursor: pointer;
+    
+    background: ${props => props.disabled ? "green" : "#3494E6"};
+    cursor: ${props => props.disabled ? "not-allowed" : "pointer"};
     
     &:active {
-      transform: scale(1.1);
+      transform: ${props => props.disabled ? "none" : "scale(1.1)"};
     }
     
     span {
@@ -64,4 +88,14 @@ const Reviews = styled.span`
     font-size: 11px;
 `;
 
-export default Description;
+Description.propTypes = {
+    addProductToShopingCartInit: PropTypes.func.isRequired,
+    markProductAsInShopingCart: PropTypes.func.isRequired,
+    shopingCart: PropTypes.array.isRequired
+};
+
+const mapStateToProps = state => ({
+    shopingCart: state.shopingCart
+});
+
+export default connect(mapStateToProps, {addProductToShopingCartInit, markProductAsInShopingCart})(Description);
