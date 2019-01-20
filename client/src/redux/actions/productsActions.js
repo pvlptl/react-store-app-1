@@ -13,3 +13,24 @@ export const getProducutsResult = data => {
     }
 };
 
+export const getProductDetails = id => {
+    return {
+        type: types.GET_PRODUCT_DETAILS_INIT,
+        id
+    }
+};
+
+export const getProductDetailsResult = data => {
+    return {
+        type: types.GET_PRODUCT_DETAILS_RESULT,
+        data
+    }
+};
+
+export const getProductDetailsLoading = data => {
+    return {
+        type: types.GET_PRODUCT_DETAILS_LOADING,
+        data
+    }
+};
+

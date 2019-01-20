@@ -3,11 +3,11 @@ import styled from "styled-components";
 import ProductImages from "./ProductImages";
 import ProductPrice from "./ProductPrice/ProductPrice";
 
-const NavProductDetails = props => {
+const NavProductDetails = ({productDetails}) => {
     return (
         <Container>
-            <ProductImages/>
-            <ProductPrice/>
+            <ProductImages productDetails={productDetails}/>
+            <ProductPrice productDetails={productDetails}/>
         </Container>
     );
 };

@@ -20,8 +20,8 @@ class App extends Component {
                     <Header/>
                     <Switch>
                         <Route exact path='/' component={ProductsList}/>
-                        <Route exact path='/product/:uniqueName' component={ProductDetails}/>
                         <Route exact path='/not-found' component={NotFound}/>
+                        <Route exact path='/:titleForUrl/:id' component={ProductDetails}/>
                         <Route component={NotFound}/>
                     </Switch>
                 </Container>

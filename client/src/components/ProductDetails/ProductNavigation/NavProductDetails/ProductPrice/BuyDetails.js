@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import Description from "../../../../Description";
 
-const BuyDetails = props => {
+const BuyDetails = ({productDetails}) => {
     return (
         <Container>
-            <Description/>
+            <Description price={productDetails.price}/>
         </Container>
     );
 };

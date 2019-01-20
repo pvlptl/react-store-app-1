@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Carousel, Modal, Button} from 'react-materialize'
-import productUrl from '../../../../assets/images/products/product.png';
 import './ProductImages.scss';
 
-const ProductImages = props => {
+const ProductImages = ({productDetails}) => {
 
     const ModalButton = (
         <Modal
             className='modal-container'
             trigger={<Button>ZOOM IMAGE</Button>}>
-            <img src={productUrl} alt="Item Name"/>
+            <img src={productDetails.image} alt="Item Name"/>
         </Modal>
     );
 
@@ -21,10 +20,10 @@ const ProductImages = props => {
                 fixedItem={ModalButton}
                 options={{ fullWidth: true }}
                 images={[
-                    productUrl,
-                    productUrl,
-                    productUrl,
-                    productUrl
+                    productDetails.image,
+                    productDetails.image,
+                    productDetails.image,
+                    productDetails.image
                 ]}
             />
 

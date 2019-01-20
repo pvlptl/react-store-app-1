@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Promo from "./Promo";
 import BuyDetails from "./BuyDetails";
 
-const ProductPrice = props => {
+const ProductPrice = ({productDetails}) => {
     return (
         <Container>
             <Promo/>
-            <BuyDetails/>
+            <BuyDetails productDetails={productDetails}/>
             <UL>
                 <LI>Гарантия 12 месяцев, обмен/возврат товара в течение 14 дней</LI>
                 <LI>Оплата Наличными, Visa/MasterCard, Приват24, Кредит, Оплата частями, Мгновенная рассрочка, Безналичными</LI>

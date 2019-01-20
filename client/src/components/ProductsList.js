@@ -54,7 +54,7 @@ ProductsList.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    products: state.products,
+    products: state.products.data,
     errors: state.errors
 });
 

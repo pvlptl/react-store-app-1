@@ -5,12 +5,15 @@ import Description from "./Description";
 
 const ProductItem = ({product}) => {
 
-    const {title, price, image, uniqueName} = product;
+    const {id, title, titleForUrl, price, image} = product;
+    const productUrl = `${titleForUrl}/${id}`;
 
     return (
         <Container>
-            <Link to={`/product/${uniqueName}`}>
-                <img src={image} alt={title}/>
+            <Link to={`/${productUrl}`}>
+                <Image>
+                    <img src={image} alt={title}/>
+                </Image>
             </Link>
             <HR/>
             <Name>{title}</Name>
@@ -26,13 +29,6 @@ const Container = styled.div`
     margin: 5px;
     width: calc(25% - 10px);
     border-radius: 5px;
-    img {
-      width: 100%;
-      cursor: pointer;
-      &:active {
-        transform: scale(1.1);
-      }
-    }
     
     @media screen and (max-width: 1300px) {
       width: calc(33.3333333% - 10px);
@@ -46,6 +42,19 @@ const Container = styled.div`
       width: calc(100% - 10px);
     }
     
+`;
+
+const Image = styled.div`
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    img {
+      width: 100%;
+      cursor: pointer;
+      &:active {
+        transform: scale(1.1);
+      }
+    }
 `;
 
 const Name = styled.div`
