@@ -5,9 +5,14 @@ import Search from "./Search";
 import FlexFillRemainingSpace from "./UI/FlexFillRemainingSpace";
 import Link from "react-router-dom/es/Link";
 import {Modal} from 'react-materialize'
-import ShopingCart from "./ShopingCart";
+import ShopingCart from "./ShopingCart/ShopingCart";
+import './Header.scss';
+import PropTypes from "prop-types";
+import {connect} from "react-redux";
 
-const Header = props => {
+const Header = ({shopingCart}) => {
+
+    const productsInCart = shopingCart.length === 0 ? '' : shopingCart.length;
 
     const modalTrigger = (
         <i className="fas fa-shopping-cart"/>
@@ -33,7 +38,11 @@ const Header = props => {
                 </ButtonItem>
 
                 <ButtonItem>
+                    <ProductsInCart>
+                        {productsInCart}
+                    </ProductsInCart>
                     <Modal
+                        className='modal-container'
                         trigger={modalTrigger}>
                         <ShopingCart/>
                     </Modal>
@@ -84,6 +93,7 @@ const Buttons = styled.div`
 `;
 
 const ButtonItem = styled.div`
+position: relative;
     margin: 0 20px;
     display: flex;
     flex-direction: column;
@@ -100,4 +110,17 @@ const ButtonItem = styled.div`
     }
 `;
 
-export default Header;
+const ProductsInCart = styled.div`
+    position: absolute;
+    top: -23px;
+`;
+
+Header.propTypes = {
+    shopingCart: PropTypes.array.isRequired
+};
+
+const mapStateToProps = state => ({
+    shopingCart: state.shopingCart
+});
+
+export default connect(mapStateToProps)(Header);

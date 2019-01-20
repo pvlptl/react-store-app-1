@@ -1,5 +1,26 @@
 import { put } from 'redux-saga/effects';
-import {addProductToShopingCart, loadShopingCartFromLocalStorage} from "../actions/shopingCartActions";
+import {
+    addProductToShopingCart,
+    loadShopingCartFromLocalStorage
+} from "../actions/shopingCartActions";
+
+export function* removeProductFromShopingCartSaga(action) {
+
+    const {shopingCart, product} = action;
+    let products = [...shopingCart];
+
+    const index = products.findIndex(p => p.id === product.id);
+    products[index].amount--;
+
+    if (products[index].amount === 0) {
+        products = products.filter(p => p.id !== product.id)
+    }
+    yield put(addProductToShopingCart(products));
+
+    // save cart to local storage
+    yield localStorage.setItem("shopingCart", JSON.stringify(products));
+
+}
 
 export function* addProdctToShopingCartSaga(action) {
 

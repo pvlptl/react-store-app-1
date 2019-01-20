@@ -8,19 +8,15 @@ import {markProductAsInShopingCart} from "../redux/actions/productsActions";
 
 const Description = ({product, addProductToShopingCartInit, shopingCart, markProductAsInShopingCart}) => {
 
-    const {inShopingCart} = product;
-
     let productFoundInShopingCart = false;
-    if (!inShopingCart) {
-        for (let i = 0; i < shopingCart.length; i++) {
-            if (shopingCart[i].id === product.id) {
-                productFoundInShopingCart = true;
-                break;
-            }
+    for (let i = 0; i < shopingCart.length; i++) {
+        if (shopingCart[i].id === product.id) {
+            productFoundInShopingCart = true;
+            break;
         }
     }
 
-    const disabled = inShopingCart || productFoundInShopingCart ;
+    const disabled = productFoundInShopingCart ;
     const onClick = () => {
         if (disabled) return;
         addProductToShopingCartInit(shopingCart, product);
