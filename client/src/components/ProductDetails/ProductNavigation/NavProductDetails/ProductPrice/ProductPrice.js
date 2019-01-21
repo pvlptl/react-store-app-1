@@ -9,9 +9,9 @@ const ProductPrice = ({productDetails}) => {
             <Promo/>
             <BuyDetails productDetails={productDetails}/>
             <UL>
-                <LI>Гарантия 12 месяцев, обмен/возврат товара в течение 14 дней</LI>
-                <LI>Оплата Наличными, Visa/MasterCard, Приват24, Кредит, Оплата частями, Мгновенная рассрочка, Безналичными</LI>
-                <LI>Продавец гарантирует упаковку заказанного товара, которая обеспечит целостность и сохранность его товарного вида</LI>
+                <LI>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, facilis!</LI>
+                <LI>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium adipisci aspernatur fuga magnam. Aliquid, repudiandae!</LI>
+                <LI>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut, dolore, porro!</LI>
             </UL>
         </Container>
     );

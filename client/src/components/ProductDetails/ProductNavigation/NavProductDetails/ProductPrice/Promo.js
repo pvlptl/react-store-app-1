@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import Link from "react-router-dom/es/Link";
 
-const Promo = props => {
+const Promo = () => {
     return (
         <Container>
-            <h1>Акция! Подарок к ноутбукам ASUS серий FX504, FX505/705 и X570 на базе процессоров Intel Core i7/i9 8-го поколения!</h1>
-            <p>До конца акции осталось: 03 : 04 : 20 : 12</p>
-            <Link to="/">Условия акции</Link>
+            <h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit labore laborum, quisquam sed soluta voluptatibus.</h1>
+            <p>Lorem ipsum dolor sit amet.</p>
+            <Link to="/">Lorem ipsum dolor.</Link>
         </Container>
     );
 };
